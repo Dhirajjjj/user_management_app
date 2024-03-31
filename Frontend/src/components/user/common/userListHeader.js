@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import SearchBar from "../../constants/searchBar";
 
 function UserListHeader({ openAddUser, searchQuery, searchChange }) {

@@ -12,6 +12,7 @@ function UserList({ userList, setUserList }) {
     const [isAddOpen, setAddOpen] = useState(false);
     const [isEditOpen, setEditOpen] = useState(false);
     const [currentUser, setCurrentUser] = useState();
+    const [searchQuery, setSearchQuery] = useState('');
 
     const openAddUser = () => {
         setAddOpen(true);
@@ -54,14 +55,23 @@ function UserList({ userList, setUserList }) {
         const updatedList = userList.filter(user => user.id !== userId);
         setUserList(updatedList);
     };
+
+    const filteredUserList = userList.filter(user =>
+        user.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        user.lastName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
     
     return (
         <>
             <div class="flex flex-col items-center p-12">
-                <UserListHeader openAddUser={openAddUser} />
+                <UserListHeader openAddUser={openAddUser} searchQuery={searchQuery} searchChange={handleSearchChange} />
                 <UserColumnHeader />
-                {userList.length > 0 ? 
-                    userList.map(user => (
+                {filteredUserList.length > 0 ? 
+                    filteredUserList.map(user => (
                         <UserListCard key={user.id} user={user} openEditUser={openEditUser} setUser={setUser} />
                     )) : (
                         <div class="w-2/3 bg-gray-50 px-4 py-12 text-center border-x border-b border-gray-200">

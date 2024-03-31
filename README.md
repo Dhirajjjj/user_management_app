@@ -79,3 +79,7 @@ Setup postgres with the provided schema
 (make sure the database is properly setup) 
 
 **Now you are good to go!**
+
+![alt text](image.png)
+
+![alt text](image-1.png)

@@ -67,15 +67,15 @@ function UserList({ userList, setUserList }) {
     
     return (
         <>
-            <div class="flex flex-col items-center p-12">
+            <div className="flex flex-col items-center p-12">
                 <UserListHeader openAddUser={openAddUser} searchQuery={searchQuery} searchChange={handleSearchChange} />
                 <UserColumnHeader />
                 {filteredUserList.length > 0 ? 
                     filteredUserList.map(user => (
                         <UserListCard key={user.id} user={user} openEditUser={openEditUser} setUser={setUser} />
                     )) : (
-                        <div class="w-2/3 bg-gray-50 px-4 py-12 text-center border-x border-b border-gray-200">
-                            <text class="text-md text-gray-400" >No users have been added yet</text>
+                        <div className="w-2/3 bg-gray-50 px-4 py-12 text-center border-x border-b border-gray-200">
+                            <span className="text-md text-gray-400" >No users have been added yet</span>
                         </div>
                     )
                 }

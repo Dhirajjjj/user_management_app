@@ -80,6 +80,40 @@ Setup postgres with the provided schema
 
 **Now you are good to go!**
 
+## Personal Decisions
+
+> This was made in a **shortcut** kind of way, skipping the understanding of lots of additional features such as
+> - who should be able to update records 
+> - who and how can one create records
+> - would updation of records require verified password
+> - ability to change passwords
+>
+> for the simplicity of showcasing the working app with the following technologies and within the respective time.
+
+### Packages selection
+**Frontend**
+
+    Axios - for handling network http requestes
+
+    Tailwind css - styling library 
+
+**Backend**
+
+    sequelize - for object-relational mapping
+
+    pg - for interacting with the postgresql database
+
+    bcrypt - for hashing the user passwords before storing them in the database
+
+
+### Future Scope
+ 
+- [x] Search user record based on name
+- [ ] Allow user record update only after verifying password 
+- [ ] Admin functionality to enable/disable user record
+
+## Images
+
 ![alt text](image.png)
 
 ![alt text](image-1.png)
